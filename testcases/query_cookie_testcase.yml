@@ -1,0 +1,16 @@
+
+config:
+    name: "query cookie testcase"
+#cookie可以自动进行关联
+teststeps:
+-
+    name: 登录
+    api: api/cookie_login_api.yml
+    validate:
+        - eq: ["status_code", 200]
+
+-
+    name: 查询余额
+    api: api/cookie_requery_api.yml
+    validate:
+        - eq: ["status_code", 200]

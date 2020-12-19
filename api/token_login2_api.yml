@@ -1,0 +1,20 @@
+
+name: 登录接口---通过testcase进行参数化
+base_url: http://localhost:8080
+#对登录接口不进行参数化时，给出下列默认值（这样别的接口关联登录接口时，能保证登录接口无问题）
+variables:
+    userName: admin
+    password: 1234
+    message: success
+#skip: 跳过该登录接口测试
+request:
+    url: /pinter/bank/api/login2
+    method: POST
+    data:
+        userName: $userName
+        password: $password
+
+
+validate:
+    - eq: [content.message, $message]
+

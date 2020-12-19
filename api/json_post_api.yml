@@ -1,0 +1,13 @@
+
+name: 参数为json的POST接口
+base_url: http://localhost:8080
+variables:
+    var1: value1
+    var2: value2
+request:
+    url: /pinter/com/register
+    method: POST
+    json: {"userName":"test","password":"1234","gender":1,"phoneNum":"110","email":"beihe@163.com","address":"Beijing"}
+
+validate:
+    - eq: ["status_code", 200]

@@ -1,0 +1,18 @@
+
+name: 普通的GET类型接口
+base_url: http://localhost:8080
+variables:
+  sku_id: 1
+  expect_value: testfan
+  fph_one: 200
+request:
+    url: /pinter/com/getSku
+    method: GET
+    params:
+      id: $sku_id
+
+validate:
+    - eq: ["status_code", $fph_one]
+    #返回值包含断言内容
+    - contains: [content.data.brand,test]
+    - {"check": content.data.brand, "expect": $expect_value,"comparator": "eq"}

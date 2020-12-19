@@ -1,0 +1,14 @@
+#测试登录场景
+config:
+    name: 登录测试用例
+    variables:
+      title: 笛卡尔积title
+teststeps:
+-
+    name: $title
+    api: api/token_login2_api.yml
+
+
+    validate:
+      - eq: ["status_code", 200]
+

@@ -1,0 +1,33 @@
+
+config:
+    name: "query testcase"
+    setup_hooks:
+      - ${hook_up()}
+    teardown_hooks:
+      - ${hook_down()}
+
+teststeps:
+-
+    name: 登录
+    api: api/token_login2_api.yml
+    extract:
+        - t: content.data
+    validate:
+        - eq: ["status_code", 200]
+    setup_hooks:
+      - ${hook_log(---对测试用例1---)}
+    teardown_hooks:
+      - ${hook_log(---对测试用例1结束执行---)}
+
+-
+    name: 查询余额
+    api: api/token_requery2_api.yml
+    #testcase中，登录接口提取的token变量t，可以在此调用，也可在token_requery2_api.yml中直接调用
+    variables:
+      s: $t
+    validate:
+        - eq: ["status_code", 200]
+    setup_hooks:
+      - ${hook_log(---对测试用例2---)}
+    teardown_hooks:
+      - ${hook_log(---对测试用例2结束执行---)}

@@ -1,0 +1,16 @@
+
+name: 文件上传
+base_url: http://localhost:8080
+
+variables:
+    var1: value1
+    var2: value2
+request:
+    url: /pinter/file/api/upload
+    method: POST
+    upload:
+      file: "api/demo_api.yml"
+
+validate:
+    - eq: ["status_code", 200]
+    - eq: [content,上传成功]

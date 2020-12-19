@@ -1,0 +1,17 @@
+
+name: 登录接口---cookie关联
+base_url: http://localhost:8080
+
+variables:
+    var1: value1
+    var2: value2
+request:
+    url: /pinter/bank/api/login
+    method: POST
+    data:
+        userName: admin
+        password: 1234
+
+
+validate:
+    - eq: ["status_code", 200]

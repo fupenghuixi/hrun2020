@@ -1,0 +1,15 @@
+
+name: 银行余额查询---通过testcase进行参数化
+base_url: http://localhost:8080
+
+variables:
+    var1: value1
+    var2: value2
+request:
+    url: /pinter/bank/api/query2?userName=admin
+    method: GET
+    headers:
+        testfan-token: $s
+
+validate:
+    - eq: ["status_code", 200]

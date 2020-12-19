@@ -1,0 +1,13 @@
+
+name: 银行余额查询---cookie关联
+base_url: http://localhost:8080
+
+variables:
+    var1: value1
+    var2: value2
+request:
+    url: /pinter/bank/api/query?userName=admin
+    method: GET
+
+validate:
+    - eq: ["status_code", 200]

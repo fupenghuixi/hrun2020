@@ -1,0 +1,19 @@
+
+name: 银行余额查询-debugtalk方法关联
+base_url: http://localhost:8080
+
+skipUnless: ${get_token()}
+variables:
+    var1: value1
+    var2: value2
+request:
+    url: /pinter/bank/api/query2
+    method: GET
+    params:
+      userName: admin
+    headers:
+        testfan-token: ${get_token()}   #从debug内获取返回正确的token值
+
+
+validate:
+    - eq: ["status_code", 200]

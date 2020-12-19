@@ -1,0 +1,11 @@
+
+name: 需要签名认证的MD5接口
+base_url: http://localhost:8080
+
+request:
+    url: /pinter/com/userInfo
+    method: POST
+    #整个参数动态生成
+    json: ${sign()}
+validate:
+    - eq: ["status_code", 200]
